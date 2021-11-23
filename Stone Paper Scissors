@@ -1,0 +1,73 @@
+import java.util.Scanner;
+import java.util.Random;
+public class Stone{
+    public static void main(String[] args) {
+        System.out.println("Press 1 for Stone");
+        System.out.println("Press 2 for Paper");
+        System.out.println("Press 3 for Scissors");
+        int your_choice;
+        int computer_choice;
+        int game_count=0;
+        int your_score=0;
+        int computer_score=0;
+        while(game_count<6){
+        Scanner input= new Scanner(System.in);
+        System.out.println("Enter a number between between 1,2,3 :");
+        your_choice=input.nextInt();
+        switch(your_choice){
+            case 1:System.out.println("You chose Stone ");
+            break;
+            case 2:System.out.println("You chose Paper ");
+            break;
+            case 3:System.out.println("You chose Scissor ");
+            break;
+        }
+        Random select=new Random();
+        computer_choice=select.nextInt((3)+1);
+        System.out.println(computer_choice);
+        switch(computer_choice){
+            case 1:System.out.println("Computer chose Stone ");
+            break;
+            case 2:System.out.println("Computer chose Paper ");
+            break;
+            case 3:System.out.println("Computer chose Scissor");
+            break;
+        }
+        if(your_choice==computer_choice){
+            game_count++;
+            System.out.println("Match Drawn !");
+            System.out.println("Your score is "+your_score);
+            System.out.println("Computer's score is "+computer_score);
+        }
+        if(your_choice <= 0 || your_choice > 3){
+            System.out.println("Invalid Option! ");
+        }
+        else if((your_choice==1 && computer_choice==3 )||(your_choice==2 && computer_choice==1)||(your_choice==3 && computer_choice==2)){
+            System.out.println("Great ! You Won ");
+            your_score++;
+            game_count++;
+            System.out.println("Your score is "+your_score);
+            System.out.println("Computer's score is "+computer_score);
+        }
+        else if((your_choice==1 && computer_choice==2)||(your_choice==2 && computer_choice==3)||(your_choice==3 && computer_choice==1)){
+            System.out.println("You have lost ");
+            computer_score++;
+            game_count++;
+            System.out.println("Your score is "+your_score);
+            System.out.println("Computer's score is "+computer_score);
+        }
+        if(game_count==5 && your_score > computer_score){
+            System.out.println("Congratulations, you've won the tournament ");
+            break;
+        }
+        else if(game_count==5 && your_score == computer_score){
+            System.out.println("The Tournament ended up in a tie");
+            break;
+        }
+        else if(game_count==5 && your_score < computer_score){
+            System.out.println("Unfortunately, You've lost the tournament !");
+            break;
+        }
+    }
+}
+}
