@@ -1,0 +1,44 @@
+import java.util.Scanner;
+public class Calc{
+public static void main(String args[]) {
+    char opera;
+    double first,second,result;
+    Scanner input = new Scanner(System.in);
+    System.out.print("Enter any Operator(+,-,*,/):");
+    opera = input.next().charAt(0);
+    System.out.print("Enter the first number:");
+    first = input.nextDouble();
+    System.out.print("Enter the second number:");
+    second = input.nextDouble();
+    System.out.print("The Result is :");
+    switch (opera) 
+    {
+        case '+':
+            result = first + second;
+            System.out.print(result);
+            System.exit(0);
+            break;
+        case '-':
+            result =first - second;
+            System.out.print(result);
+            System.exit(0);
+            break;
+        case '*':
+            result = first * second;
+            System.out.print(result);
+            System.exit(0);
+            break;
+        case '/':
+            result = first / second;
+            System.out.print(result);
+            System.exit(0);
+            break;
+    
+        default:
+            System.out.println("Error! This Code is not Correct");
+            System.exit(0);
+            break;
+    }
+    input.close();
+}
+}
